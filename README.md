@@ -25,8 +25,9 @@ docker run -it \
 jgranstrom/simple-gitlab-runner \
 -u https://ci.gitlab.com/ \
 -r yourregistrationtoken \
---name 'Your Runner Name' \
---tag-list 'your, tags'
+--description 'Your Runner Name' \
+--tag-list 'your, tags' \
+--executor shell
 ```
 All the command arguments are proxied to the `gitlab-runner register -n`. For more information on available options check the [official documentation of the gitlab runner](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/tree/master/docs).
 
