@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 
+gitlab-ci-multi-runner --version
 gitlab-ci-multi-runner register -n "$@"
 
 exec gitlab-ci-multi-runner run --working-directory=/home/gitlab-runner

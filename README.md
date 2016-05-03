@@ -18,15 +18,15 @@ Also take note that if you use docker-compose in your tests, you would need to e
 Manual usage example
 -------------
 ```
-docker run -d --name gitlab-runner \
+docker run -it \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v `which docker`:`which docker` \
 -v /home/gitlab-runner:/home/gitlab-runner \
-rayrutjes/simple-gitlab-runner \
+jgranstrom/simple-gitlab-runner \
 -u https://ci.gitlab.com/ \
 -r yourregistrationtoken \
--d 'Your Runner Name' \
--t 'your, tags'
+--name 'Your Runner Name' \
+--tag-list 'your, tags'
 ```
 All the command arguments are proxied to the `gitlab-runner register -n`. For more information on available options check the [official documentation of the gitlab runner](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/tree/master/docs).
 
@@ -55,7 +55,7 @@ Tutum deployment
 
 ### Run command
 ```
--u https://ci.gitlab.com/ -r yourregistrationtoken -d 'Your Runner Name' -t 'your, tags'
+-u https://ci.gitlab.com/ -r yourregistrationtoken --name 'Your Runner Name' --tag-list 'your, tags'
 ```
 
 ### Mount volumes
